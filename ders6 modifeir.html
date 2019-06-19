@@ -1,0 +1,39 @@
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <button v-on:click="showAlert('Alperen')">Alert </button>
+  <p>{{ counter }}	</p>
+  <button v-on:click="counter++">Arttır </button>
+  <button v-on:click="counter+=2">++2 </button>
+  <p> {{counter > 10 ? "Counter 10 dan büyüktür." : "Counter 10 dan küçüktür."}} </p>
+  <p v-on:mousemove="updateCoords">Kordinatlar : {{ x }} -  {{y}}  
+  <span v-on:mousemove.stop> GizliBölme </span> 
+  </p> 
+  <input type="text" v-on:keyup.enter="showAlert()">
+</div>
+
+
+<script>
+// Compenent kontrol kısmı objesi
+new Vue({
+  el: "#app",
+	data : {
+		counter : 0,
+		x : 0,
+		y : 0,
+	},
+	methods: {
+		showAlert : function (name=event.target.value) {
+		alert(name);
+		},
+		updateCoords : function(event){
+		this.x = event.clientX;
+		this.y = event.clientY;
+		},
+	
+	}
+});
+
+</script>
+</html>

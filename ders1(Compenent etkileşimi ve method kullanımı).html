@@ -1,0 +1,29 @@
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <h1>{{description}}</h1>
+  <hr>
+  <input type="text" v-on:input="changeTitle">
+  <hr>
+  <p>{{ title }}</p>
+</div>
+
+
+<script>
+// Compenent kontrol kısmı objesi
+new Vue({
+  el: "#app",
+  data: {
+    title: "Merhaba Vue js",
+    description: "Açıklama"
+  },
+  // method tanımlama 
+  methods: {
+    changeTitle: function(event) {
+      this.title = event.target.value
+    }
+  }
+});
+</script>
+</html>

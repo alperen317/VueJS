@@ -1,0 +1,37 @@
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+	<button v-on:click="counter++">Arttır</button>
+	<button v-on:click="counter--">Azalt</button>
+	<button v-on:click="secondConter+=2">Arttır</button>
+	<p>Counter :  {{counter}} , counter2 : {{ secondConter}} </p>
+	<hr>
+	<p> {{result() }}  | {{ output }}</p>
+</div>
+
+
+<script>
+// Compenent kontrol kısmı objesi
+new Vue({
+  el: "#app",
+	data : {
+		counter : 0,
+		secondConter : 0
+	},
+	methods : {
+		result : function () {
+			console.log("method çalıştı.")
+			return this.counter > 10 ? "10'dan büyüktür" : "10 ' dan küçüktür."
+		}
+	},
+	computed : {
+	 output : function(){
+		console.log("computed calıştı.")
+		return this.counter > 10 ? "10'dan büyüktür" : "10 ' dan küçüktür."
+	 }
+	}
+})
+
+</script>
+</html>

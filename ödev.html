@@ -1,0 +1,42 @@
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <!-- v-once ilk renderda kullanılan kalır. -->
+		<p>VueJs muazzam bir framwork {{ adYas() }} </p>
+		<hr>
+		<p> {{ yasCarp() }} </p>
+        <img v-bind:src="imgSrc" alt="" height="50"> </img>
+		<br>
+		<p> {{ randomSayı() }} <p>
+		<br>
+			<input type="text" v-bind:value="ad">
+
+
+</div>
+
+
+<script>
+// Compenent kontrol kısmı objesi
+new Vue({
+  el: "#app",
+  data: {
+    ad: "Alperen",
+	yas : "23",
+	imgSrc : "https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F819661%252F53880b1a-3b44-4c9c-ac68-292498049960.png%252F950x534__filters%253Aquality%252880%2529.png?signature=JD5QIdLDfFK56IUqn7Jh9E4YShE=&source=https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com"
+  },
+  methods : {
+	adYas : function (){
+		return this.ad+"("+this.yas+")";
+	},
+	randomSayı : function () {
+		return Math.random();
+	},
+	yasCarp : function () {
+		return 5*this.yas;
+	}
+  }
+});
+
+</script>
+</html>

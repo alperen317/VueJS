@@ -1,0 +1,35 @@
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <button v-on:click="showAlert('Alperen')">Alert </button>
+  <p>{{ counter }}	</p>
+  <button v-on:click="counter++">Arttır </button>
+  <hr>
+  <p v-on:mousemove="updateCoords">Kordinatlar : {{ x }} -  {{y}} </p>
+</div>
+
+
+<script>
+// Compenent kontrol kısmı objesi
+new Vue({
+  el: "#app",
+	data : {
+		counter : 0,
+		x : 0,
+		y : 0,
+	},
+	methods: {
+		showAlert : function (name) {
+		alert(name);
+		},
+		updateCoords : function(event){
+		this.x = event.clientX;
+		this.y = event.clientY;
+		},
+	
+	}
+});
+
+</script>
+</html>
